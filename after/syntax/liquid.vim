@@ -3,8 +3,10 @@ if exists("b:current_syntax")
 endif
 
 syn include @JSON syntax/json.vim
+
 syn region nestedJSON
-  \ start=+{% schema %}+hs=e
+  \ matchgroup=liquidDelimiter
+  \ start="{% schema %}"
   \ keepend
-  \ end=+{% endschema %}+me=s-1
+  \ end="\n{% endschema %}"me=s-2
   \ contains=@JSON
